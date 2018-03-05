@@ -3,7 +3,7 @@ const RSS = require('rss');
 let feed = null;
 
 module.exports = async client => {
-  const query = 'SELECT * from feed_items LIMIT 200';
+  const query = 'SELECT * from feed_items ORDER BY id DESC LIMIT 200';
 
   feed = new RSS({
     title: 'Nekomimi RSS Feed',
