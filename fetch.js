@@ -14,7 +14,7 @@ const loadFeed = url => {
 };
  
 module.exports = async client => {
-    const rss = await loadFeed("https://nyaa.si/?page=rss&c=1_2");
+    const rss = await loadFeed("https://nyaa.si/?page=rss&c=1_2&f=2");
 
     rss.channel.item.forEach(item => {
       const query = 'INSERT INTO feed_items (id, title, link, guid, pubdate, size) VALUES ($1, $2, $3, $4, $5, $6)';
