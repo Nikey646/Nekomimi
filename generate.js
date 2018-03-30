@@ -13,6 +13,7 @@ module.exports = async client => {
     pubDate: new Date(),
     custom_namespaces: {
       nyaa: 'https://nyaa.si/xmlns/nyaa',
+      anilist: 'https://anilist.co',
     },
   });
 
@@ -26,7 +27,8 @@ module.exports = async client => {
         guid: row.guid,
         date: row.pubdate,
         custom_elements: [
-          { 'nyaa:size': row.size }
+          { 'nyaa:size': row.size },
+          { 'anilist:id': `${row.mediaid}` },
         ],
       });
     });
